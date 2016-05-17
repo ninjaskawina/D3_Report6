@@ -6,21 +6,7 @@
 		<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
 		<style type="text/css">
 		
-			div.bar1 {
-				display: inline-block;
-				width: 300px;
-				height: 75px;	/* Gets overriden by D3-assigned height below */
-				margin-right: 2px;
-				background-color: teal;
-			}
-			div.bar2 {
-				display: inline-block;
-				width: 300px;
-				height: 75px;	/* Gets overriden by D3-assigned height below */
-				margin-right: 2px;
-				background-color: teal;
-			}
-			div.bar3 {
+			div.bar {
 				display: inline-block;
 				width: 300px;
 				height: 75px;	/* Gets overriden by D3-assigned height below */
@@ -50,17 +36,15 @@
 				i += 1;
 			}
 			
-			var num = 1;
 			var t = 0;
 			
 			d3.select("body").selectAll("div")
 				.data(bar)
 				.enter()
 				.append("div")
-				.attr("class", "bar" + num)
+				.attr("class", "bar")
 				.style("height", function(d) {
 					var barHeight = d * 5;
-					num += 1;
 					return barHeight + "px";
 				})
 				.append("text")
