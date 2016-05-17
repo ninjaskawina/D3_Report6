@@ -1,5 +1,3 @@
-#C:\Python\python.exe C:\Users\Ninja\Desktop\parse.py
-#62c813137a6c5df7bd8f031400c0102c
 import urllib.request
 import xml.etree.ElementTree as ET
 
