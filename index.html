@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Humidity comparison (Changes are well visible)</title>
+		<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+		<style type="text/css">
+		
+			div.bar1 {
+				display: inline-block;
+				width: 300px;
+				height: 75px;	/* Gets overriden by D3-assigned height below */
+				margin-right: 2px;
+				background-color: teal;
+			}
+			div.bar2 {
+				display: inline-block;
+				width: 300px;
+				height: 75px;	/* Gets overriden by D3-assigned height below */
+				margin-right: 2px;
+				background-color: teal;
+			}
+			div.bar3 {
+				display: inline-block;
+				width: 300px;
+				height: 75px;	/* Gets overriden by D3-assigned height below */
+				margin-right: 2px;
+				background-color: teal;
+			}
+		
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			var dataset = {
+        "hum1": "68",
+
+        "hum2": "100",
+
+        "hum3": "78"
+
+}
+			var bar = [];
+			var labels = ["Krakow", "Warsaw", "Poznan"];
+			var i = 0;
+
+			for (var key in dataset) {
+				bar[i] = dataset[key];
+				i += 1;
+			}
+			
+			var num = 1;
+			var t = 0;
+			
+			d3.select("body").selectAll("div")
+				.data(bar)
+				.enter()
+				.append("div")
+				.attr("class", "bar" + num)
+				.style("height", function(d) {
+					var barHeight = d * 5;
+					num += 1;
+					return barHeight + "px";
+				})
+				.append("text")
+				.style("color", "white")
+				.attr("text-anchor", "middle")
+				.text(function(d) {
+				return labels[t++] + " (" + d + "%)";
+				});
+				
+
+				
+						
+		</script>
+	</body>
+</html>
